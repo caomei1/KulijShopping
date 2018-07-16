@@ -6,4 +6,6 @@ public interface UserService{
 
 	User findOneByUsername(String username);
 
+	void creatUser(User user, String username);
+
 }

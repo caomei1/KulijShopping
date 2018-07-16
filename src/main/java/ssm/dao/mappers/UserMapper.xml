@@ -8,4 +8,8 @@
 		select * from user where user_name = #{userName}
 	</select>
 	
+	<insert id="creatUser">
+		insert into user(open_id, user_jurisdiction, user_name) 
+		values('null', 'USER', #{userName})
+	</insert>
 </mapper>

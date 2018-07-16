@@ -1,7 +1,9 @@
 package ssm.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -20,8 +22,14 @@ public class VipOrderController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/logins")
-	public String login(String username) {
-		User user = userService.findOneByUsername(username);
+	public String login(@ModelAttribute User user, String username) {
+		User user1 = userService.findOneByUsername(username);
+		if(user1 != null) {
+//TODO		userService.updateUser(username);
+			return "prolist";
+		} else {
+			userService.creatUser(user, username);
+		}
 		return "prolist";
 	}
 
