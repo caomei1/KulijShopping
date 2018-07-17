@@ -50,7 +50,7 @@
   </form><!--subBox/-->
   <div class="ding-gou">
    <div class="ding">
-    <a href="vipOrder"><img src="${contextPath}/assets/images/dingdan.jpg" width="106" height="32" /></a>
+    <a href="order"><img src="${contextPath}/assets/images/dingdan.jpg" width="106" height="32" /></a>
    </div><!--ding/-->
    <div class="gou">
     <a href="car"><img src="${contextPath}/assets/images/gouwuche.jpg" width="126" height="32" /></a>
@@ -61,9 +61,9 @@
  <div class="navBox navBg3">
   <ul class="nav">
    <li><a href="prolist">首页</a></li>
-   <li><a href="buy">我要买</a></li>
-   <li><a href="vip-product">我要卖</a></li>
-   <li class="navCur"><a href="vipOrder">会员中心</a></li>
+   <li><a href="buy">买家</a></li>
+   <li><a href="vip-product">卖家</a></li>
+   <li class="navCur"><a href="vip">会员中心</a></li>
    <li><a href="xuanshang">悬赏榜</a></li>
    <li><a href="luntan" class="luntan">论坛</a></li>
    <li><a href="help">帮助</a></li>
@@ -76,8 +76,8 @@
    <h3 class="vipName">测试webqin</h3>
    <ul class="buy-nav">
     <li class="buy-nav1"><a href="vip-sell">卖家中心</a></li>
-    <li class="buy-nav2 buy-navCur"><a href="vip-product">发布产品</a></li>
-    <li class="buy-nav3"><a href="vip-prolist">产品列表</a></li>
+    <li class="buy-nav2"><a href="vip-product">发布产品</a></li>
+    <li class="buy-nav3 buy-navCur"><a href="vip-prolist">产品列表</a></li>
     <li class="buy-nav4"><a href="vip-dingzhi">定制服务</a></li>
     <li class="buy-nav5"><a href="vip-pingjia">评价留言</a></li>
     <li class="buy-nav6"><a href="vip-pwd">修改密码</a></li>
@@ -85,61 +85,44 @@
    </ul><!--buy-nav/-->
   </div><!--vipLeft/-->
   <div class="vipRight">
-   <h2 class="vipTitle">发布商品</h2>
-   <form action="#" method="get" enctype="multipart/form-data" class="vip-pro">
-   <table>
-   	<tr>
-     <th>店铺名</th>
-     <td>某某官方旗舰店</td>
+   <h2 class="vipTitle">产品列表</h2>
+   <table class="vip-proList">
+    <tr>
+     <th width="136">商品</th>
+     <th width="200">商品介绍</th>
+     <th width="106">单价</th>
+     <th width="56">佣金</th>
+     <th width="86">上架时间</th>	
+     <th width="56">库存</th>
+     <th width="41">操作</th>
     </tr>
     <tr>
-     <th>商品名称</th>
-     <td><input type="text" /></td>
-    </tr>
-    <tr>
-     <th>分类</th>
-     <td>
-      <select>
-      	<c:forEach items="${comClassify}" var="classify">
-       	<option>${classify.commodityClassifyName}</option>
-        </c:forEach>
-      </select>
+     <td align="center"><img src="${contextPath}/assets/images/vip-prolist.png" width="119" height="79" /></td>
+     <td><strong class="pstitle">出售9.5新中兴天机三网版!支持联通电信3G移动2G!</strong></td>
+     <td align="center"><strong class="sellName">999.00</strong></td>
+     <td align="center">20</td>
+     <td align="center">2017-10-22</td>
+     <td align="center">100</td>
+     <td align="center">
+     	<a href="#" class="shan">上架</a>
+     	<a href="#" class="shan">下架</a>
+     	<a href="#" class="shan">删除</a>
      </td>
     </tr>
-    <tr>
-     <th>添加商品图片</th>
-     <td><input type="file" /></td>
-    </tr>
-    <tr>
-     <th>价格</th>
-     <td><input type="text" /></td>
-    </tr>
-    <tr>
-     <th>佣金</th>
-     <td><input type="text" /></td>
-    </tr>
-    <tr>
-     <th>运费</th>
-     <td><input type="text" /></td>
-    </tr>
-    <tr>
-     <th>商品库存</th>
-     <td><input type="text" /></td>
-    </tr>
-    <tr>
-     <th>商品描述</th>
-     <td>
-      <textarea>
-      
-      </textarea>
+       <tr>
+     <td align="center"><img src="${contextPath}/assets/images/vip-prolist.png" width="119" height="79" /></td>
+     <td><strong class="pstitle">出售9.5新中兴天机三网版!支持联通电信3G移动2G!</strong></td>
+     <td align="center"><strong class="sellName">999.00</strong></td>
+     <td align="center">20</td>
+     <td align="center">2017-10-22</td>
+     <td align="center">100</td>
+     <td align="center">
+     	<a href="#" class="shan">上架</a>
+     	<a href="#" class="shan">下架</a>
+     	<a href="#" class="shan">删除</a>
      </td>
     </tr>
-   </table><!--vip-pro/-->
-   <div class="ti-qu">
-    <input type="submit" value="提交" />
-    <input type="reset" value="取消" />
-   </div><!--ti-qu/-->
-   </form>
+   </table><!--vip-proList/-->
   </div><!--vipRight/-->
   <div class="clears"></div>
  </div><!--vipBox/-->
