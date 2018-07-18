@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import ssm.dao.CommodityDao;
 import ssm.entity.CommodityClassify;
+import ssm.entity.CommodityPicture;
+import ssm.entity.SellerCommodityList;
 
 @Service
 public class CommodityServiceImpl implements CommodityService{
@@ -17,6 +19,21 @@ public class CommodityServiceImpl implements CommodityService{
 	@Override
 	public List<CommodityClassify> findCommodityClassify() {
 		return commodityDao.findCommodityClassify();
+	}
+
+	@Override
+	public void addCommodity(SellerCommodityList comList) {
+		commodityDao.addCommodity(comList);
+	}
+
+	@Override
+	public void addCommodityPicture(CommodityPicture comPicture) {
+		commodityDao.addCommodityPicture(comPicture);
+	}
+
+	@Override
+	public List<SellerCommodityList> findAllSellerCommodityList() {
+		return commodityDao.findAllSellerCommodityList();
 	}
 
 }

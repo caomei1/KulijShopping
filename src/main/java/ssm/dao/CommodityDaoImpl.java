@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import ssm.dao.mappers.CommodityMapper;
 import ssm.entity.CommodityClassify;
+import ssm.entity.CommodityPicture;
+import ssm.entity.SellerCommodityList;
 
 @Repository
 public class CommodityDaoImpl implements CommodityDao {
@@ -17,5 +19,20 @@ public class CommodityDaoImpl implements CommodityDao {
 	@Override
 	public List<CommodityClassify> findCommodityClassify() {
 		return commodityMapper.findCommodityClassify();
+	}
+
+	@Override
+	public void addCommodity(SellerCommodityList comList) {
+		commodityMapper.addCommodity(comList);
+	}
+
+	@Override
+	public void addCommodityPicture(CommodityPicture comPicture) {
+		commodityMapper.addCommodityPicture(comPicture);
+	}
+
+	@Override
+	public List<SellerCommodityList> findAllSellerCommodityList() {
+		return commodityMapper.findAllSellerCommodityList();
 	}
 }

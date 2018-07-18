@@ -22,9 +22,17 @@ public class SellerCommodityList {
 	
 	private String sellerCommodityDescribe; //商品描述
 	
-	private String sellerCommodityTime; //商品上架时间
-	
 	private Integer sellerCommodityState; //商品状态, 默认'0'未上架
+	
+	private Commodity commodity;  //商品
+	
+	public Commodity getCommodity() {
+		return commodity;
+	}
+
+	public void setCommodity(Commodity commodity) {
+		this.commodity = commodity;
+	}
 
 	public Integer getSellerCommodityId() {
 		return sellerCommodityId;
@@ -106,14 +114,6 @@ public class SellerCommodityList {
 		this.sellerCommodityDescribe = sellerCommodityDescribe;
 	}
 
-	public String getSellerCommodityTime() {
-		return sellerCommodityTime;
-	}
-
-	public void setSellerCommodityTime(String sellerCommodityTime) {
-		this.sellerCommodityTime = sellerCommodityTime;
-	}
-
 	public Integer getSellerCommodityState() {
 		return sellerCommodityState;
 	}
@@ -131,8 +131,8 @@ public class SellerCommodityList {
 				", sellerCommodityPrice=" + sellerCommodityPrice
 				+ ", sellerCommodityCommision=" + sellerCommodityCommision + ", sellerCommodityFreight="
 				+ sellerCommodityFreight + ", sellerCommodityStock=" + sellerCommodityStock
-				+ ", sellerCommodityDescribe=" + sellerCommodityDescribe + ", sellerCommodityTime="
-				+ sellerCommodityTime + ", sellerCommodityState=" + sellerCommodityState + "]";
+				+ ", sellerCommodityDescribe=" + sellerCommodityDescribe 
+				+ ", sellerCommodityState=" + sellerCommodityState + "]";
 	}
 	
 }

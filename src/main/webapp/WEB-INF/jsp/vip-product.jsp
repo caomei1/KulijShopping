@@ -86,7 +86,7 @@
   </div><!--vipLeft/-->
   <div class="vipRight">
    <h2 class="vipTitle">发布商品</h2>
-   <form action="#" method="get" enctype="multipart/form-data" class="vip-pro">
+   <form action="${contextPath}/addCommodity" method="post" enctype="multipart/form-data" class="vip-pro">
    <table>
    	<tr>
      <th>店铺名</th>
@@ -94,12 +94,12 @@
     </tr>
     <tr>
      <th>商品名称</th>
-     <td><input type="text" /></td>
+     <td><input type="text" name="sellerCommodityName"/></td>
     </tr>
     <tr>
      <th>分类</th>
      <td>
-      <select>
+      <select name="commodityClassifyName">
       	<c:forEach items="${comClassify}" var="classify">
        	<option>${classify.commodityClassifyName}</option>
         </c:forEach>
@@ -108,28 +108,28 @@
     </tr>
     <tr>
      <th>添加商品图片</th>
-     <td><input type="file" /></td>
+     <td><input type="file" name="picture"/></td>
     </tr>
     <tr>
      <th>价格</th>
-     <td><input type="text" /></td>
+     <td><input type="text" name="sellerCommodityPrice"/></td>
     </tr>
     <tr>
      <th>佣金</th>
-     <td><input type="text" /></td>
+     <td><input type="text" name="sellerCommodityCommision"/></td>
     </tr>
     <tr>
      <th>运费</th>
-     <td><input type="text" /></td>
+     <td><input type="text" name="sellerCommodityFreight"/></td>
     </tr>
     <tr>
      <th>商品库存</th>
-     <td><input type="text" /></td>
+     <td><input type="text" name="sellerCommodityStock"/></td>
     </tr>
     <tr>
      <th>商品描述</th>
      <td>
-      <textarea>
+      <textarea name="sellerCommodityDescribe">
       
       </textarea>
      </td>
