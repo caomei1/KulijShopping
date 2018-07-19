@@ -108,7 +108,7 @@
     </tr>
     <tr>
      <th>添加商品图片</th>
-     <td><input type="file" name="picture"/></td>
+     <td><input type="file" name="picture"/><input type="file" name="picture"/></td>
     </tr>
     <tr>
      <th>价格</th>

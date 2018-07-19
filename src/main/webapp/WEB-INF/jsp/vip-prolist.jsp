@@ -96,32 +96,25 @@
      <th width="56">库存</th>
      <th width="41">操作</th>
     </tr>
+    <c:forEach items="${sellerComList}" var="SellerComList">
     <tr>
-     <td align="center"><img src="${contextPath}/assets/images/vip-prolist.png" width="119" height="79" /></td>
-     <td><strong class="pstitle">出售9.5新中兴天机三网版!支持联通电信3G移动2G!</strong></td>
-     <td align="center"><strong class="sellName">999.00</strong></td>
-     <td align="center">20</td>
-     <td align="center">2017-10-22</td>
-     <td align="center">100</td>
+     <td align="center">
+     <c:forEach items="${SellerComList.commodityPicture}" var="commodityPictures">
+     <img src="${contextPath}/vip-prolist/${commodityPictures.commodityPictureUrl}" width="80" height="50"/>
+     </c:forEach>
+     </td>
+     <td><strong class="pstitle">${SellerComList.sellerCommodityDescribe}</strong></td>
+     <td align="center"><strong class="sellName">${SellerComList.sellerCommodityPrice}</strong></td>
+     <td align="center">${SellerComList.sellerCommodityCommision}</td>
+     <td align="center"></td>
+     <td align="center">${SellerComList.sellerCommodityStock}</td>
      <td align="center">
      	<a href="#" class="shan">上架</a>
      	<a href="#" class="shan">下架</a>
      	<a href="#" class="shan">删除</a>
      </td>
     </tr>
-       <tr>
-     <td align="center"><img src="${contextPath}/assets/images/vip-prolist.png" width="119" height="79" /></td>
-     <td><strong class="pstitle">出售9.5新中兴天机三网版!支持联通电信3G移动2G!</strong></td>
-     <td align="center"><strong class="sellName">999.00</strong></td>
-     <td align="center">20</td>
-     <td align="center">2017-10-22</td>
-     <td align="center">100</td>
-     <td align="center">
-     	<a href="#" class="shan">上架</a>
-     	<a href="#" class="shan">下架</a>
-     	<a href="#" class="shan">删除</a>
-     </td>
-    </tr>
+    </c:forEach>
    </table><!--vip-proList/-->
   </div><!--vipRight/-->
   <div class="clears"></div>

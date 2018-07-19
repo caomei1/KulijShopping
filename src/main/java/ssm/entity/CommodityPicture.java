@@ -11,15 +11,6 @@ public class CommodityPicture {
 	private MultipartFile picture;
 	private String commodityPictureUrl; //商品图片
 	
-	private SellerCommodityList sellerCommodityList; //商品列表
-	
-	public SellerCommodityList getSellerCommodityList() {
-		return sellerCommodityList;
-	}
-	public void setSellerCommodityList(SellerCommodityList sellerCommodityList) {
-		this.sellerCommodityList = sellerCommodityList;
-	}
-	
 	public Integer getCommodityPictureId() {
 		return commodityPictureId;
 	}

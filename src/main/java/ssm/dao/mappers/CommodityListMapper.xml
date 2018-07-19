@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ssm.dao.mappers.CommodityListMapper">
+
+	<select id="findSellerCommodityList" resultMap="sellerCommodityListMap">
+		select s.seller_commodity_id commodity_id,
+		s.commodity_classify_name classify_name,
+		s.seller_commodity_name commodity_name,
+		s.seller_commodity_price commodity_price,
+		s.seller_commodity_commision commodity_commision,
+		s.seller_commodity_freight commodity_freight,
+		s.seller_commodity_describe commodity_describe,
+		s.seller_commodity_state commodity_state,
+		s.seller_commodity_stock commodity_stock,
+		s.shop_id shop_id, s.user_id user_id,
+		p.commodity_picture_id picture_id,
+		p.commodity_picture_url picture_url, 
+		p.seller_commodity_list_id commodity_list_id 
+			from seller_commodity_list s inner join 
+		commodity_picture p on 
+		p.seller_commodity_list_id = s.seller_commodity_id;
+	</select>
+	<resultMap type="SellerCommodityList" id="sellerCommodityListMap">
+		<id property="sellerCommodityId" column="commodity_id"/>
+		<result property="commodityClassifyName" column="classify_name"/>
+		<result property="sellerCommodityName" column="commodity_name"/>
+		<result property="sellerCommodityPrice" column="commodity_price"/>
+		<result property="sellerCommodityCommision" column="commodity_commision"/>
+		<result property="sellerCommodityFreight" column="commodity_freight"/>
+		<result property="sellerCommodityDescribe" column="commodity_describe"/>
+		<result property="sellerCommodityState" column="commodity_state"/>
+		<result property="sellerCommodityStock" column="commodity_stock"/>
+		<result property="shopId" column="shop_id"/>
+		<result property="userId" column="user_id"/>
+		
+		<collection property="commodityPicture" ofType="CommodityPicture">
+			<id property="commodityPictureId" column="picture_id"/>
+			<result property="sellerCommodityListId" column="commodity_list_id"/>
+			<result property="commodityPictureUrl" column="picture_url"/>
+		</collection>
+	</resultMap>
+
+</mapper>

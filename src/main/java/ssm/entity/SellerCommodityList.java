@@ -1,5 +1,7 @@
 package ssm.entity;
 
+import java.util.List;
+
 public class SellerCommodityList {
 	
 	private Integer sellerCommodityId; //卖家商品列表id
@@ -26,6 +28,16 @@ public class SellerCommodityList {
 	
 	private Commodity commodity;  //商品
 	
+	private List<CommodityPicture> commodityPicture; //商品图片
+	
+	public List<CommodityPicture> getCommodityPicture() {
+		return commodityPicture;
+	}
+
+	public void setCommodityPicture(List<CommodityPicture> commodityPicture) {
+		this.commodityPicture = commodityPicture;
+	}
+
 	public Commodity getCommodity() {
 		return commodity;
 	}
@@ -124,15 +136,13 @@ public class SellerCommodityList {
 
 	@Override
 	public String toString() {
-		return "SellerCommodityList [sellerCommodityId=" + sellerCommodityId + 
-				", userId=" + userId + ", shopId="
-				+ shopId + ", commodityClassifyName=" + commodityClassifyName + 
-				", sellerCommodityName=" + sellerCommodityName + 
-				", sellerCommodityPrice=" + sellerCommodityPrice
-				+ ", sellerCommodityCommision=" + sellerCommodityCommision + ", sellerCommodityFreight="
-				+ sellerCommodityFreight + ", sellerCommodityStock=" + sellerCommodityStock
-				+ ", sellerCommodityDescribe=" + sellerCommodityDescribe 
-				+ ", sellerCommodityState=" + sellerCommodityState + "]";
+		return "SellerCommodityList [sellerCommodityId=" + sellerCommodityId + ", userId=" + userId + ", shopId="
+				+ shopId + ", commodityClassifyName=" + commodityClassifyName + ", sellerCommodityName="
+				+ sellerCommodityName + ", sellerCommodityPrice=" + sellerCommodityPrice + ", sellerCommodityCommision="
+				+ sellerCommodityCommision + ", sellerCommodityFreight=" + sellerCommodityFreight
+				+ ", sellerCommodityStock=" + sellerCommodityStock + ", sellerCommodityDescribe="
+				+ sellerCommodityDescribe + ", sellerCommodityState=" + sellerCommodityState + ", commodity="
+				+ commodity + ", commodityPicture=" + commodityPicture + "]";
 	}
 	
 }

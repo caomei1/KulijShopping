@@ -16,6 +16,7 @@ import ssm.entity.CommodityClassify;
 import ssm.entity.CommodityPicture;
 import ssm.entity.SellerCommodityList;
 import ssm.entity.User;
+import ssm.service.CommodityListService;
 import ssm.service.CommodityService;
 
 @Controller
@@ -23,6 +24,9 @@ public class ProlistController {
 
 	@Autowired
 	private CommodityService commodityService;
+	
+	@Autowired
+	private CommodityListService commodityListService;
 	
 	private String uploadDir = "D:/java/picture";
 
@@ -39,17 +43,17 @@ public class ProlistController {
 	
 	// 添加商品
 	@RequestMapping(method = RequestMethod.POST, value = "/addCommodity")
-	public String addCommodity(@ModelAttribute SellerCommodityList comList, 
+	public String addCommodity(@ModelAttribute SellerCommodityList commodity, 
 			@ModelAttribute CommodityPicture comPicture, Model model, 
 			@AuthenticationPrincipal(expression = "user") User user, 
 			RedirectAttributes redirectAttributes) throws Exception {
 		//添加商品信息,把用户设进表单
-		comList.setUserId(user.getUserId());
-		commodityService.addCommodity(comList);
+		commodity.setUserId(user.getUserId());
+		commodityService.addCommodity(commodity);
 		model.addAttribute("Success","添加商品成功");
 		//查询所有商品列表
 		List<SellerCommodityList> comListAll = 
-				commodityService.findAllSellerCommodityList();
+				commodityService.findAllCommodityList();
 		//获取最后一个商品对象
 		SellerCommodityList sellerCommodityList = comListAll.get(comListAll.size()-1);
 		//添加商品图片
@@ -65,7 +69,12 @@ public class ProlistController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/vip-prolist")
-	public String vipProlist(@AuthenticationPrincipal(expression = "user") User user) {
+	public String vipProlist(Model model, 
+			@AuthenticationPrincipal(expression = "user") User user) {
+		//查询用户的所有商品列表
+		List<SellerCommodityList> sellerComList = 
+				commodityListService.findSellerCommodityList();
+		model.addAttribute("sellerComList", sellerComList);
 		return "vip-prolist";
 	}
 

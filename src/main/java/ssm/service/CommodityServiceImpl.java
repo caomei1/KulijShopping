@@ -22,8 +22,8 @@ public class CommodityServiceImpl implements CommodityService{
 	}
 
 	@Override
-	public void addCommodity(SellerCommodityList comList) {
-		commodityDao.addCommodity(comList);
+	public void addCommodity(SellerCommodityList commodity) {
+		commodityDao.addCommodity(commodity);
 	}
 
 	@Override
@@ -32,8 +32,8 @@ public class CommodityServiceImpl implements CommodityService{
 	}
 
 	@Override
-	public List<SellerCommodityList> findAllSellerCommodityList() {
-		return commodityDao.findAllSellerCommodityList();
+	public List<SellerCommodityList> findAllCommodityList() {
+		return commodityDao.findAllCommodityList();
 	}
 
 }

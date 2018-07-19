@@ -2,32 +2,33 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="ssm.dao.mappers.CommodityMapper">
 	<select id="findCommodityClassify" resultType="CommodityClassify">
 		select * from commodity_classify
 	</select>
-	
+
 	<insert id="addCommodity" parameterType="SellerCommodityList">
-		insert into seller_commodity_list(commodity_classify_name,
-		 seller_commodity_name, seller_commodity_price, 
-		 seller_commodity_commision, seller_commodity_freight, 
-		 seller_commodity_describe, seller_commodity_state, user_id, 
-		 seller_commodity_stock) 
-		 values(#{commodityClassifyName}, #{sellerCommodityName}, 
-		  #{sellerCommodityPrice}, #{sellerCommodityCommision}, 
-		  #{sellerCommodityFreight}, #{sellerCommodityDescribe}, 
-		  0, #{userId}, #{sellerCommodityStock})
+		insert into
+		seller_commodity_list(commodity_classify_name,
+		seller_commodity_name, seller_commodity_price,
+		seller_commodity_commision, seller_commodity_freight,
+		seller_commodity_describe, seller_commodity_state, user_id,
+		seller_commodity_stock)
+		values(#{commodityClassifyName}, #{sellerCommodityName},
+		#{sellerCommodityPrice}, #{sellerCommodityCommision},
+		#{sellerCommodityFreight}, #{sellerCommodityDescribe},
+		0, #{userId}, #{sellerCommodityStock})
 	</insert>
-	
+
 	<insert id="addCommodityPicture" parameterType="CommodityPicture">
-		insert into commodity_picture(seller_commodity_list_id, 
-		 commodity_picture_url) 
-		 values(#{sellerCommodityListId}, #{commodityPictureUrl})
+		insert into commodity_picture(seller_commodity_list_id,
+		commodity_picture_url)
+		values(#{sellerCommodityListId}, #{commodityPictureUrl})
 	</insert>
 	
-	<select id="findAllSellerCommodityList" resultType="SellerCommodityList">
+	<select id="findAllCommodityList" resultType="SellerCommodityList">
 		select * from seller_commodity_list
 	</select>
-	
+
 </mapper>

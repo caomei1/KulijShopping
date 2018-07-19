@@ -10,10 +10,10 @@ public interface CommodityDao {
 
 	List<CommodityClassify> findCommodityClassify();
 
-	void addCommodity(SellerCommodityList comList);
+	void addCommodity(SellerCommodityList commodity);
 
 	void addCommodityPicture(CommodityPicture comPicture);
 
-	List<SellerCommodityList> findAllSellerCommodityList();
+	List<SellerCommodityList> findAllCommodityList();
 
 }

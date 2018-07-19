@@ -22,8 +22,8 @@ public class CommodityDaoImpl implements CommodityDao {
 	}
 
 	@Override
-	public void addCommodity(SellerCommodityList comList) {
-		commodityMapper.addCommodity(comList);
+	public void addCommodity(SellerCommodityList commodity) {
+		commodityMapper.addCommodity(commodity);
 	}
 
 	@Override
@@ -32,7 +32,8 @@ public class CommodityDaoImpl implements CommodityDao {
 	}
 
 	@Override
-	public List<SellerCommodityList> findAllSellerCommodityList() {
-		return commodityMapper.findAllSellerCommodityList();
+	public List<SellerCommodityList> findAllCommodityList() {
+		return commodityMapper.findAllCommodityList();
 	}
+
 }
