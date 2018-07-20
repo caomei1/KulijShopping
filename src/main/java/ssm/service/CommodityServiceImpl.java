@@ -28,7 +28,7 @@ public class CommodityServiceImpl implements CommodityService{
 
 	@Override
 	public void addCommodityPicture(CommodityPicture comPicture) {
-		commodityDao.addCommodityPicture(comPicture);
+			commodityDao.addCommodityPicture(comPicture);
 	}
 
 	@Override

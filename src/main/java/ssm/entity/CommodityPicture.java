@@ -1,5 +1,7 @@
 package ssm.entity;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public class CommodityPicture {
@@ -8,7 +10,7 @@ public class CommodityPicture {
 	
 	private Integer sellerCommodityListId; // 商品列表id
 	
-	private MultipartFile picture;
+	private List<MultipartFile> picture;
 	private String commodityPictureUrl; //商品图片
 	
 	public Integer getCommodityPictureId() {
@@ -23,12 +25,14 @@ public class CommodityPicture {
 	public void setSellerCommodityListId(Integer sellerCommodityListId) {
 		this.sellerCommodityListId = sellerCommodityListId;
 	}
-	public MultipartFile getPicture() {
+	
+	public List<MultipartFile> getPicture() {
 		return picture;
 	}
-	public void setPicture(MultipartFile picture) {
+	public void setPicture(List<MultipartFile> picture) {
 		this.picture = picture;
 	}
+	
 	public String getCommodityPictureUrl() {
 		return commodityPictureUrl;
 	}

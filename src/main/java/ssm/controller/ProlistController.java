@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ssm.entity.CommodityClassify;
@@ -44,7 +45,7 @@ public class ProlistController {
 	// 添加商品
 	@RequestMapping(method = RequestMethod.POST, value = "/addCommodity")
 	public String addCommodity(@ModelAttribute SellerCommodityList commodity, 
-			@ModelAttribute CommodityPicture comPicture, Model model, 
+			@ModelAttribute() CommodityPicture comPicture,  Model model, 
 			@AuthenticationPrincipal(expression = "user") User user, 
 			RedirectAttributes redirectAttributes) throws Exception {
 		//添加商品信息,把用户设进表单
@@ -57,14 +58,22 @@ public class ProlistController {
 		//获取最后一个商品对象
 		SellerCommodityList sellerCommodityList = comListAll.get(comListAll.size()-1);
 		//添加商品图片
-		String filename = comPicture.getPicture().getOriginalFilename();
-		String newFileName = String.valueOf(System.currentTimeMillis()) + filename;
-		comPicture.getPicture().transferTo(new File(uploadDir, newFileName));
-		comPicture.setCommodityPictureUrl(newFileName);
-		comPicture.setSellerCommodityListId(sellerCommodityList.getSellerCommodityId());
-		commodityService.addCommodityPicture(comPicture);
-		// RedirectAttributes同时还可以作为Model用(addAttribute)，添加flash属性必须用addFlashAttribute
-		redirectAttributes.addFlashAttribute("save");
+		List<MultipartFile> pictures = comPicture.getPicture();
+		//循环添加次数
+		for(int i=0; i<=1; i++) {
+				String filename = pictures.get(i).getOriginalFilename();
+				String newFileName = String.valueOf(System.currentTimeMillis()) + filename;
+				if(filename.equals("")) {
+					break;
+				} else {
+					comPicture.getPicture().get(i).transferTo(new File(uploadDir, newFileName));
+					comPicture.setCommodityPictureUrl(newFileName);
+					comPicture.setSellerCommodityListId(sellerCommodityList.getSellerCommodityId());
+					commodityService.addCommodityPicture(comPicture);
+				}
+				// RedirectAttributes同时还可以作为Model用(addAttribute)，添加flash属性必须用addFlashAttribute
+				redirectAttributes.addFlashAttribute("save");
+			}
 		return "redirect:/vip-product";
 	}
 

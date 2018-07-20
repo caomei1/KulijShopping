@@ -12,7 +12,7 @@ public interface CommodityDao {
 
 	void addCommodity(SellerCommodityList commodity);
 
-	void addCommodityPicture(CommodityPicture comPicture);
+	void addCommodityPicture(CommodityPicture comPictures);
 
 	List<SellerCommodityList> findAllCommodityList();
 
