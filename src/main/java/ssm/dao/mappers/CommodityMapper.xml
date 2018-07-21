@@ -16,8 +16,8 @@
 		seller_commodity_describe, seller_commodity_state, user_id,
 		seller_commodity_stock)
 		values(#{commodityClassifyName}, #{sellerCommodityName},
-		#{sellerCommodityPrice}, #{sellerCommodityCommision},
-		#{sellerCommodityFreight}, #{sellerCommodityDescribe},
+		#{sellerCommodityPrice}*100, #{sellerCommodityCommision}*100,
+		#{sellerCommodityFreight}*100, #{sellerCommodityDescribe},
 		0, #{userId}, #{sellerCommodityStock})
 	</insert>
 

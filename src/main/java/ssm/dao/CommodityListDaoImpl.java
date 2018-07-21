@@ -19,4 +19,14 @@ public class CommodityListDaoImpl implements CommodityListDao {
 		return commodityListMapper.findSellerCommodityList();
 	}
 
+	@Override
+	public void deletePicture(int id) {
+		commodityListMapper.deletePicture(id);
+	}
+
+	@Override
+	public void deleteCommodity(int id) {
+		commodityListMapper.deleteCommodity(id);
+	}
+
 }

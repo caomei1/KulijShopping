@@ -14,11 +14,11 @@ public class SellerCommodityList {
 	
 	private String sellerCommodityName;	//商品名称
 	
-	private Integer sellerCommodityPrice;	//商品价格，分为单位
+	private String sellerCommodityPrice;	//商品价格，分为单位
 	
-	private Integer sellerCommodityCommision; //商品佣金
+	private String sellerCommodityCommision; //商品佣金
 	
-	private Integer sellerCommodityFreight; //商品运费
+	private String sellerCommodityFreight; //商品运费
 	
 	private Integer sellerCommodityStock; //商品库存
 	
@@ -86,27 +86,27 @@ public class SellerCommodityList {
 		this.sellerCommodityName = sellerCommodityName;
 	}
 
-	public Integer getSellerCommodityPrice() {
+	public String getSellerCommodityPrice() {
 		return sellerCommodityPrice;
 	}
 
-	public void setSellerCommodityPrice(Integer sellerCommodityPrice) {
+	public void setSellerCommodityPrice(String sellerCommodityPrice) {
 		this.sellerCommodityPrice = sellerCommodityPrice;
 	}
 
-	public Integer getSellerCommodityCommision() {
+	public String getSellerCommodityCommision() {
 		return sellerCommodityCommision;
 	}
 
-	public void setSellerCommodityCommision(Integer sellerCommodityCommision) {
+	public void setSellerCommodityCommision(String sellerCommodityCommision) {
 		this.sellerCommodityCommision = sellerCommodityCommision;
 	}
 
-	public Integer getSellerCommodityFreight() {
+	public String getSellerCommodityFreight() {
 		return sellerCommodityFreight;
 	}
 
-	public void setSellerCommodityFreight(Integer sellerCommodityFreight) {
+	public void setSellerCommodityFreight(String sellerCommodityFreight) {
 		this.sellerCommodityFreight = sellerCommodityFreight;
 	}
 

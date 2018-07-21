@@ -104,14 +104,14 @@
      </c:forEach>
      </td>
      <td><strong class="pstitle">${SellerComList.sellerCommodityDescribe}</strong></td>
-     <td align="center"><strong class="sellName">${SellerComList.sellerCommodityPrice}</strong></td>
-     <td align="center">${SellerComList.sellerCommodityCommision}</td>
+     <td align="center"><strong class="sellName">${SellerComList.sellerCommodityPrice/100}</strong></td>
+     <td align="center">${SellerComList.sellerCommodityCommision/100}</td>
      <td align="center"></td>
      <td align="center">${SellerComList.sellerCommodityStock}</td>
      <td align="center">
      	<a href="#" class="shan">上架</a>
      	<a href="#" class="shan">下架</a>
-     	<a href="#" class="shan">删除</a>
+     	<a href="${contextPath}/deleteCommodity/${SellerComList.sellerCommodityId}" class="shan">删除</a>
      </td>
     </tr>
     </c:forEach>

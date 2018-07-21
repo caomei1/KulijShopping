@@ -19,4 +19,14 @@ public class CommodityListServiceImpl implements CommodityListService {
 		return commodityListDao.findSellerCommodityList();
 	}
 
+	@Override
+	public void deletePicture(int id) {
+		commodityListDao.deletePicture(id);
+	}
+
+	@Override
+	public void deleteCommodity(int id) {
+		commodityListDao.deleteCommodity(id);
+	}
+
 }

@@ -8,6 +8,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -45,7 +46,7 @@ public class ProlistController {
 	// 添加商品
 	@RequestMapping(method = RequestMethod.POST, value = "/addCommodity")
 	public String addCommodity(@ModelAttribute SellerCommodityList commodity, 
-			@ModelAttribute() CommodityPicture comPicture,  Model model, 
+			@ModelAttribute CommodityPicture comPicture,  Model model, 
 			@AuthenticationPrincipal(expression = "user") User user, 
 			RedirectAttributes redirectAttributes) throws Exception {
 		//添加商品信息,把用户设进表单
@@ -80,11 +81,19 @@ public class ProlistController {
 	@RequestMapping(method = RequestMethod.GET, value = "/vip-prolist")
 	public String vipProlist(Model model, 
 			@AuthenticationPrincipal(expression = "user") User user) {
-		//查询用户的所有商品列表
+		//查询卖家的所有商品列表
 		List<SellerCommodityList> sellerComList = 
 				commodityListService.findSellerCommodityList();
 		model.addAttribute("sellerComList", sellerComList);
 		return "vip-prolist";
+	}
+	
+	//删除卖家列表中的商品
+	@RequestMapping(method = RequestMethod.GET, value = "/deleteCommodity/{id}")
+	public String deleteCommodity(@PathVariable int id) {
+		commodityListService.deletePicture(id);
+		commodityListService.deleteCommodity(id);
+		return "redirect:/vip-prolist";
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/prolist")

@@ -42,5 +42,13 @@
 			<result property="commodityPictureUrl" column="picture_url"/>
 		</collection>
 	</resultMap>
+	
+	<delete id="deletePicture">
+		delete from commodity_picture  where seller_commodity_list_id = #{id}
+	</delete>
+	
+	<delete id="deleteCommodity">
+		delete from seller_commodity_list  where seller_commodity_id = #{id}
+	</delete>
 
 </mapper>

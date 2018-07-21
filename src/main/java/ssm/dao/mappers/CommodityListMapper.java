@@ -8,4 +8,8 @@ public interface CommodityListMapper {
 
 	List<SellerCommodityList> findSellerCommodityList();
 
+	void deletePicture(int id);
+
+	void deleteCommodity(int id);
+
 }
