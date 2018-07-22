@@ -31,6 +31,8 @@ public class ProlistController {
 	private CommodityListService commodityListService;
 	
 	private String uploadDir = "D:/java/picture";
+	
+	private File file = new File("D:\\java\\picture");
 
 	// @AuthenticationPrincipal(expression = "user") User user
 	@RequestMapping(method = RequestMethod.GET, value = "/vip-product")
@@ -91,7 +93,33 @@ public class ProlistController {
 	//删除卖家列表中的商品
 	@RequestMapping(method = RequestMethod.GET, value = "/deleteCommodity/{id}")
 	public String deleteCommodity(@PathVariable int id) {
+		List<SellerCommodityList> sellerComList = 
+				commodityListService.findSellerCommodityList();
+		//删除文件夹中的图片
+		File [] files = file.listFiles();
+		for(SellerCommodityList sellerComLists : sellerComList) {
+			if(id == sellerComLists.getSellerCommodityId()) { //传入的id==商品id
+				for(int i=0; i<=sellerComLists.getCommodityPicture().size()-1; i++) {
+					if(sellerComLists.getSellerCommodityId() == 
+							sellerComLists.getCommodityPicture().get(i)
+							.getSellerCommodityListId()) {
+						for (int j = 0; j < files.length; j++) {
+				            File file1 = files[j];
+//				            System.out.println("图片名:"+file1.getName()); //根据后缀判断
+				            if(file1.getName().equals(
+				            		sellerComLists.getCommodityPicture().get(i)
+				            		.getCommodityPictureUrl())) {
+				            	file1.delete();
+				            	System.out.println("删除图片："+file1.getName());
+				            }
+				        }
+					}
+				}
+			}
+		}
+		//删除图片
 		commodityListService.deletePicture(id);
+		//删除商品
 		commodityListService.deleteCommodity(id);
 		return "redirect:/vip-prolist";
 	}
